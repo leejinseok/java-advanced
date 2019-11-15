@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person implements Cloneable {
 
   private String firstName;
@@ -42,5 +44,42 @@ public class Person implements Cloneable {
   @Override
   protected Object clone() throws CloneNotSupportedException {
     return (Person) super.clone();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+
+    if (this == obj) {
+      return true;
+    }
+
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+
+    final Person other = (Person) obj;
+
+
+    if (!this.getEmail().equals(other.getEmail())) {
+      return false;
+    }
+
+    if (!this.getFirstName().equals(other.getFirstName())) {
+      return false;
+    }
+
+    if (!this.getLastName().equals(other.getLastName())) {
+      return false;
+    }
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(email, firstName, lastName);
   }
 }

@@ -9,7 +9,7 @@ public class Main {
     final Office clone = (Office) office.clone();
     System.out.println(clone.toString());
 
-    person.setEmail("sonaky47@gmail.com");
-    System.out.println(clone.toString());
+    final Person person2 = new Person("Jinseok", "Lee", "sonaky47@naver.com");
+    System.out.println("person, person2 equality = " + person.equals(person2));
   }
 }
